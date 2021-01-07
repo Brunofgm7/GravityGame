@@ -5,10 +5,6 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour
 {
 
-   
-
-    public float degreesPerSec = 360f;
-
     // Start is called before the first frame update
     void Start() {
 
@@ -17,7 +13,7 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update() {
 
-        transform.position += new Vector3(1f * Time.deltaTime, 0, 0);
+        transform.position += new Vector3(3f * Time.deltaTime, 0, 0);
 
         if (Input.GetKeyDown(KeyCode.Space)) {
             if (GetComponent<Rigidbody2D>().gravityScale == 2) {
