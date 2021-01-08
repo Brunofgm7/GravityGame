@@ -64,6 +64,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\CameraMovement.cs" />
+    <Compile Include="Assets\Scripts\LimiteScript.cs" />
+    <Compile Include="Assets\Scripts\MenuManager.cs" />
     <Compile Include="Assets\Scripts\PlayerScript.cs" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
@@ -618,6 +620,9 @@
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/C-DesenvolvimentoDeJogos/GravityGame/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Cinemachine">
+      <HintPath>C:/C-DesenvolvimentoDeJogos/GravityGame/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.2D.Animation.Runtime">
       <HintPath>C:/C-DesenvolvimentoDeJogos/GravityGame/Library/ScriptAssemblies/Unity.2D.Animation.Runtime.dll</HintPath>
     </Reference>
@@ -681,6 +686,9 @@
     <Reference Include="Unity.2D.Animation.Editor">
       <HintPath>C:/C-DesenvolvimentoDeJogos/GravityGame/Library/ScriptAssemblies/Unity.2D.Animation.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="com.unity.cinemachine.editor">
+      <HintPath>C:/C-DesenvolvimentoDeJogos/GravityGame/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Mathematics.Editor">
       <HintPath>C:/C-DesenvolvimentoDeJogos/GravityGame/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
     </Reference>
@@ -695,12 +703,6 @@
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>C:/C-DesenvolvimentoDeJogos/GravityGame/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Cinemachine">
-      <HintPath>C:/C-DesenvolvimentoDeJogos/GravityGame/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
-    </Reference>
-    <Reference Include="com.unity.cinemachine.editor">
-      <HintPath>C:/C-DesenvolvimentoDeJogos/GravityGame/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup></ItemGroup>
