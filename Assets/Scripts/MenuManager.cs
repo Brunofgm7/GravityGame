@@ -9,11 +9,21 @@ public class MenuManager : MonoBehaviour
     public Canvas canvas;
     private CanvasGroup canvasGroup;
 
- 
+    public GameObject MenuLevels;
+
+
     public void StartGame() {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
         StartCoroutine(Fade());
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
+    }
+
+    public void AbrirLevels() {
+
+        MenuLevels.SetActive(true);
+
     }
 
     IEnumerator Fade() {
@@ -24,7 +34,8 @@ public class MenuManager : MonoBehaviour
         }
         canvasGroup.interactable = true;
         yield return null;
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+
+
     }
 
 }

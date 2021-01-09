@@ -26,7 +26,7 @@ public class PlayerScript : MonoBehaviour
 
             transform.position += new Vector3(3f * Time.deltaTime, 0, 0);
 
-            if (Input.GetKeyDown(KeyCode.Space) && isGrounded) {
+            if ((Input.GetKeyDown(KeyCode.Space) || Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) && isGrounded) {
                 contador++;
                 if (GetComponent<Rigidbody2D>().gravityScale == 2) {
 

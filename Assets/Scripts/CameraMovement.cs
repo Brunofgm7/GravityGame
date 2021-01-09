@@ -50,7 +50,7 @@ public class CameraMovement : MonoBehaviour
                 }
             }
         }
-        if (Input.GetKeyDown(KeyCode.Escape) && (!GameIsPaused)) {
+        if ((Input.GetKeyDown(KeyCode.Escape)) && (!GameIsPaused)) {
             Pause();
         }
         else if (Input.GetKeyDown(KeyCode.Escape) && (GameIsPaused)) {
@@ -75,7 +75,8 @@ public class CameraMovement : MonoBehaviour
 
         //StartCoroutine(FadeOut());
 
-        SceneManager.LoadScene(sceneBuildIndex:0);
+        SceneManager.LoadScene("Menu");
+
     }
 
     IEnumerator FadeOut() {
