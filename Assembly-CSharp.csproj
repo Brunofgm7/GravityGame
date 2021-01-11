@@ -64,9 +64,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\CameraMovement.cs" />
+    <Compile Include="Assets\Scripts\CoinScript.cs" />
+    <Compile Include="Assets\Scripts\DeletePlayerPrefs.cs" />
     <Compile Include="Assets\Scripts\FinishLine.cs" />
+    <Compile Include="Assets\Scripts\LevelSelection.cs" />
     <Compile Include="Assets\Scripts\LimiteScript.cs" />
     <Compile Include="Assets\Scripts\MenuManager.cs" />
+    <Compile Include="Assets\Scripts\NivelConcluidoScript.cs" />
     <Compile Include="Assets\Scripts\PlayerScript.cs" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />

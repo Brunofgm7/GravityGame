@@ -13,9 +13,10 @@ public class PlayerScript : MonoBehaviour
 
     public bool isGrounded = false;
 
-    // Start is called before the first frame update
-    void Start() {
+    public static int nrCoins;
 
+    private void Awake() {
+        nrCoins = 0;
     }
 
     // Update is called once per frame
@@ -48,7 +49,7 @@ public class PlayerScript : MonoBehaviour
     }
 
     private void OnCollisionStay2D(Collision2D collision) {
-        if(collision.collider.tag == "Ground") {
+        if (collision.collider.tag == "Ground") {
             isGrounded = true;
         }
     }
@@ -57,5 +58,10 @@ public class PlayerScript : MonoBehaviour
         isGrounded = false;
     }
 
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.gameObject.CompareTag("Coin")) {
+            nrCoins++;
+        } 
+    }
 
 }

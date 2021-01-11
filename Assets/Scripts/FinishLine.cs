@@ -13,21 +13,47 @@ public class FinishLine : MonoBehaviour {
 
     public GameObject nivelConcluido;
 
-    public Image black;
-    public Animator anim;
+    public int proximoNivel;
+
+    public int nrNivel;
+
+    private static int nrCoins;
+
+
+
+
+    private int nrCoinsLevel1;
+
 
     void Awake() {
 
         player = GameObject.FindGameObjectWithTag("Player");
 
+        proximoNivel = SceneManager.GetActiveScene().buildIndex + 1;
+
+        nrNivel = SceneManager.GetActiveScene().buildIndex;
+
     }
+
+    private void Update() {
+        nrCoins = PlayerScript.nrCoins;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.tag == "Player") {
-
-            nivelConcluido.SetActive(true);
-            StartCoroutine(FadeOut());
-            Destroy(collision.gameObject);
-
+            if(SceneManager.GetActiveScene().buildIndex == 3) {
+                StartCoroutine(FadeOut());
+                Destroy(collision.gameObject);
+                Debug.Log("You FINISHED THE GAME");
+            } else {
+                PlayerPrefs.SetInt("Level " + nrNivel, nrCoins);
+                nivelConcluido.SetActive(true);
+                StartCoroutine(FadeOut());
+                Destroy(collision.gameObject);
+                if (proximoNivel > PlayerPrefs.GetInt("levelAt")) {
+                    PlayerPrefs.SetInt("levelAt", proximoNivel);
+                }
+            }
         }
     }
 
