@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour
 {
 
-    private int contador;
-    public GameObject hint;
+    public static int contador;
+    //public GameObject hint;
 
     public Canvas canvas;
     public CanvasGroup canvasGroup;
@@ -15,8 +16,11 @@ public class PlayerScript : MonoBehaviour
 
     public static int nrCoins;
 
+    private int nivelAtual;
+
     private void Awake() {
         nrCoins = 0;
+        nivelAtual = SceneManager.GetActiveScene().buildIndex;
     }
 
     // Update is called once per frame
@@ -25,7 +29,11 @@ public class PlayerScript : MonoBehaviour
 
             GetComponent<Animator>().enabled = true;
 
-            transform.position += new Vector3(3f * Time.deltaTime, 0, 0);
+            if(nivelAtual == 1) {
+                transform.position += new Vector3(3f * Time.deltaTime, 0, 0);
+            } else if (nivelAtual == 2) {
+                transform.position += new Vector3(6f * Time.deltaTime, 0, 0);
+            }
 
             if ((Input.GetKeyDown(KeyCode.Space) || Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) && isGrounded) {
                 contador++;
@@ -41,9 +49,6 @@ public class PlayerScript : MonoBehaviour
                     transform.eulerAngles = new Vector3(0, 0, 0);
 
                 }
-            }
-            if (contador > 1) {
-                hint.gameObject.SetActive(false);
             }
         }
     }

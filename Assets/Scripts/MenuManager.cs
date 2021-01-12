@@ -66,30 +66,30 @@ public class MenuManager : MonoBehaviour
         }
     }
 
-    public void StartGame() {
+    public void Level1() {
 
-        StartCoroutine(Fade());
+        SceneManager.LoadScene("Level1");
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
 
+    public void Level2() {
+
+        SceneManager.LoadScene("Level2");
+
+    }
+
+    public void Level3() {
+
+        SceneManager.LoadScene("Level3");
+
+    }
+
+    public void Back() {
+        MenuLevels.SetActive(false);
     }
 
     public void AbrirLevels() {
-
         MenuLevels.SetActive(true);
-
-    }
-
-    IEnumerator Fade() {
-        canvasGroup = canvas.GetComponent<CanvasGroup>();
-        while (canvasGroup.alpha > 0) {
-            canvasGroup.alpha -= Time.deltaTime / 2;
-            yield return null;
-        }
-        canvasGroup.interactable = true;
-        yield return null;
-
-
     }
 
 }

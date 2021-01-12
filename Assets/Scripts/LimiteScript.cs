@@ -14,6 +14,7 @@ public class LimiteScript : MonoBehaviour
          if(collision.gameObject.tag == "Player") {
 
             StartCoroutine(FadeOut());
+            Destroy(collision.gameObject);
 
         }
     }

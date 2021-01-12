@@ -18,6 +18,10 @@ public class CameraMovement : MonoBehaviour
     public Canvas canvas;
     private CanvasGroup canvasGroup;
 
+    public GameObject hint;
+
+    private int nivelAtual;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -25,6 +29,8 @@ public class CameraMovement : MonoBehaviour
         StartCoroutine(FadeIn());
 
         player = GameObject.FindGameObjectWithTag("Player");
+
+        nivelAtual = SceneManager.GetActiveScene().buildIndex;
 
     }
     void Start()
@@ -39,15 +45,23 @@ public class CameraMovement : MonoBehaviour
         if (perdeu != true) {
 
             if(canvasGroup.alpha == 1) {
-                transform.position += new Vector3(3f * Time.deltaTime, 0, 0);
+                if (nivelAtual == 1) {
+                    transform.position += new Vector3(3f * Time.deltaTime, 0, 0);
+                }
+                else if (nivelAtual == 2) {
+                    transform.position += new Vector3(6f * Time.deltaTime, 0, 0);
+                }
 
                 if (player.transform.position.x <= cam.transform.position.x - camWidth) {
                     perdeu = true;
                     PlayerScript.Destroy(player);
 
                     StartCoroutine(FadeOut());
-
+                    
                 }
+            }
+            if (PlayerScript.contador > 1) {
+                hint.gameObject.SetActive(false);
             }
         }
         if ((Input.GetKeyDown(KeyCode.Escape)) && (!GameIsPaused)) {
@@ -72,11 +86,7 @@ public class CameraMovement : MonoBehaviour
     }
 
     public void Quit() {
-
-        //StartCoroutine(FadeOut());
-
         SceneManager.LoadScene("Menu");
-
     }
 
     IEnumerator FadeOut() {

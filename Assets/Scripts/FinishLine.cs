@@ -19,10 +19,9 @@ public class FinishLine : MonoBehaviour {
 
     private static int nrCoins;
 
-
-
-
     private int nrCoinsLevel1;
+
+    private int ScoreAtualCoins;
 
 
     void Awake() {
@@ -32,6 +31,8 @@ public class FinishLine : MonoBehaviour {
         proximoNivel = SceneManager.GetActiveScene().buildIndex + 1;
 
         nrNivel = SceneManager.GetActiveScene().buildIndex;
+
+        ScoreAtualCoins = PlayerPrefs.GetInt("Level " + nrNivel);
 
     }
 
@@ -46,12 +47,21 @@ public class FinishLine : MonoBehaviour {
                 Destroy(collision.gameObject);
                 Debug.Log("You FINISHED THE GAME");
             } else {
-                PlayerPrefs.SetInt("Level " + nrNivel, nrCoins);
-                nivelConcluido.SetActive(true);
-                StartCoroutine(FadeOut());
-                Destroy(collision.gameObject);
-                if (proximoNivel > PlayerPrefs.GetInt("levelAt")) {
-                    PlayerPrefs.SetInt("levelAt", proximoNivel);
+                if(ScoreAtualCoins >= nrCoins) {
+                    nivelConcluido.SetActive(true);
+                    StartCoroutine(FadeOut());
+                    Destroy(collision.gameObject);
+                    if (proximoNivel > PlayerPrefs.GetInt("levelAt")) {
+                        PlayerPrefs.SetInt("levelAt", proximoNivel);
+                    }
+                } else {
+                    PlayerPrefs.SetInt("Level " + nrNivel, nrCoins);
+                    nivelConcluido.SetActive(true);
+                    StartCoroutine(FadeOut());
+                    Destroy(collision.gameObject);
+                    if (proximoNivel > PlayerPrefs.GetInt("levelAt")) {
+                        PlayerPrefs.SetInt("levelAt", proximoNivel);
+                    }
                 }
             }
         }

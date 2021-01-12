@@ -8,8 +8,6 @@ public class NivelConcluidoScript : MonoBehaviour
 {
 
     private int nrCoinsLevel1;
-    private int nrCoinsLevel2;
-    private int nrCoinsLevel3;
 
     public Image[] imagensCoinsLevel1;
 
@@ -17,7 +15,7 @@ public class NivelConcluidoScript : MonoBehaviour
 
     private void Awake() {
 
-        nrCoinsLevel1 = PlayerPrefs.GetInt("Level 1");
+        nrCoinsLevel1 = PlayerScript.nrCoins;
 
         if (nrCoinsLevel1 == 1) {
             imagensCoinsLevel1[0].GetComponent<Image>().color = novaCor;
@@ -37,7 +35,7 @@ public class NivelConcluidoScript : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    public void Menu () {
+    public void Menu() {
         SceneManager.LoadScene("Menu");
     }
 
