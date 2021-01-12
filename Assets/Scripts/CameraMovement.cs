@@ -47,6 +47,9 @@ public class CameraMovement : MonoBehaviour
             if(canvasGroup.alpha == 1) {
                 if (nivelAtual == 1) {
                     transform.position += new Vector3(3f * Time.deltaTime, 0, 0);
+                    if (PlayerScript.contador > 1) {
+                        hint.gameObject.SetActive(false);
+                    }
                 }
                 else if (nivelAtual == 2) {
                     transform.position += new Vector3(6f * Time.deltaTime, 0, 0);
@@ -57,12 +60,10 @@ public class CameraMovement : MonoBehaviour
                     PlayerScript.Destroy(player);
 
                     StartCoroutine(FadeOut());
-                    
+
                 }
             }
-            if (PlayerScript.contador > 1) {
-                hint.gameObject.SetActive(false);
-            }
+            
         }
         if ((Input.GetKeyDown(KeyCode.Escape)) && (!GameIsPaused)) {
             Pause();
