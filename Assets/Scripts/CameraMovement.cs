@@ -110,7 +110,7 @@ public class CameraMovement : MonoBehaviour
         canvasGroup = canvas.GetComponent<CanvasGroup>();
         canvasGroup.alpha = 0;
         while (canvasGroup.alpha < 1) {
-            canvasGroup.alpha += 0.009f;
+            canvasGroup.alpha += Time.deltaTime / 2;
             canvasGroup.interactable = false;
             yield return null;
         }

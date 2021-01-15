@@ -38,7 +38,7 @@ public class PlayerScript : MonoBehaviour
                 transform.position += new Vector3(6f * Time.deltaTime, 0, 0);
             }
 
-            if ((Input.GetKeyDown(KeyCode.Space) || Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) && isGrounded && Time.timeScale == 1) {
+            if ((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) && isGrounded && Time.timeScale == 1) {
                 Touch touch = Input.GetTouch(0);
                 if (touch.position.x > Screen.width * 0.1f || touch.position.y < Screen.height * 0.9f) {
                     contador++;
