@@ -88,6 +88,7 @@ public class CameraMovement : MonoBehaviour
 
     public void Quit() {
         SceneManager.LoadScene("Menu");
+        Time.timeScale = 1f;
     }
 
     IEnumerator FadeOut() {
