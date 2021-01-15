@@ -25,7 +25,6 @@ public class CameraMovement : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-
         StartCoroutine(FadeIn());
 
         player = GameObject.FindGameObjectWithTag("Player");
@@ -44,7 +43,7 @@ public class CameraMovement : MonoBehaviour
     {
         if (perdeu != true) {
 
-            if(canvasGroup.alpha == 1) {
+            if (canvasGroup.alpha == 1) {
                 if (nivelAtual == 1) {
                     transform.position += new Vector3(3f * Time.deltaTime, 0, 0);
                     if (PlayerScript.contador > 1) {
@@ -52,6 +51,8 @@ public class CameraMovement : MonoBehaviour
                     }
                 }
                 else if (nivelAtual == 2) {
+                    transform.position += new Vector3(6f * Time.deltaTime, 0, 0);
+                } else if(nivelAtual == 3) {
                     transform.position += new Vector3(6f * Time.deltaTime, 0, 0);
                 }
 
@@ -63,8 +64,7 @@ public class CameraMovement : MonoBehaviour
 
                 }
             }
-            
-        }
+    }
         if ((Input.GetKeyDown(KeyCode.Escape)) && (!GameIsPaused)) {
             Pause();
         }
@@ -109,7 +109,7 @@ public class CameraMovement : MonoBehaviour
         canvasGroup = canvas.GetComponent<CanvasGroup>();
         canvasGroup.alpha = 0;
         while (canvasGroup.alpha < 1) {
-            canvasGroup.alpha += Time.deltaTime / 2;
+            canvasGroup.alpha += 0.009f;
             canvasGroup.interactable = false;
             yield return null;
         }

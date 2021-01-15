@@ -19,10 +19,7 @@ public class FinishLine : MonoBehaviour {
 
     private static int nrCoins;
 
-    private int nrCoinsLevel1;
-
     private int ScoreAtualCoins;
-
 
     void Awake() {
 
@@ -42,10 +39,11 @@ public class FinishLine : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.tag == "Player") {
-            if(SceneManager.GetActiveScene().buildIndex == 3) {
+            PlayerPrefs.SetInt("Passou level " + nrNivel, 1);
+            if (SceneManager.GetActiveScene().buildIndex == 3) {
+                nivelConcluido.SetActive(true);
                 StartCoroutine(FadeOut());
                 Destroy(collision.gameObject);
-                Debug.Log("You FINISHED THE GAME");
             } else {
                 if(ScoreAtualCoins >= nrCoins) {
                     nivelConcluido.SetActive(true);

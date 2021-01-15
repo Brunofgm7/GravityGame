@@ -72,6 +72,7 @@
     <Compile Include="Assets\Scripts\MenuManager.cs" />
     <Compile Include="Assets\Scripts\NivelConcluidoScript.cs" />
     <Compile Include="Assets\Scripts\NivelConcluidoScript2.cs" />
+    <Compile Include="Assets\Scripts\NivelConcluidoScript3.cs" />
     <Compile Include="Assets\Scripts\PlayerScript.cs" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />

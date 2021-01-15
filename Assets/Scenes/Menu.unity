@@ -3252,6 +3252,9 @@ MonoBehaviour:
   - {fileID: 1212301350}
   - {fileID: 483062009}
   - {fileID: 1706550478}
+  BotaoLevel1: {fileID: 912276774}
+  BotaoLevel2: {fileID: 788049011}
+  BotaoLevel3: {fileID: 1154196857}
 --- !u!4 &2069461790
 Transform:
   m_ObjectHideFlags: 0

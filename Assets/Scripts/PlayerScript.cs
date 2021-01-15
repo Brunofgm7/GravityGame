@@ -7,7 +7,6 @@ public class PlayerScript : MonoBehaviour
 {
 
     public static int contador;
-    //public GameObject hint;
 
     public Canvas canvas;
     public CanvasGroup canvasGroup;
@@ -19,35 +18,42 @@ public class PlayerScript : MonoBehaviour
     private int nivelAtual;
 
     private void Awake() {
+ 
         nrCoins = 0;
         nivelAtual = SceneManager.GetActiveScene().buildIndex;
+
     }
 
     // Update is called once per frame
     void Update() {
+    
         if (canvasGroup.alpha == 1) {
-
             GetComponent<Animator>().enabled = true;
-
+            
             if(nivelAtual == 1) {
                 transform.position += new Vector3(3f * Time.deltaTime, 0, 0);
             } else if (nivelAtual == 2) {
                 transform.position += new Vector3(6f * Time.deltaTime, 0, 0);
+            } else if (nivelAtual == 3) {
+                transform.position += new Vector3(6f * Time.deltaTime, 0, 0);
             }
 
-            if ((Input.GetKeyDown(KeyCode.Space) || Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) && isGrounded) {
-                contador++;
-                if (GetComponent<Rigidbody2D>().gravityScale == 2) {
+            if ((Input.GetKeyDown(KeyCode.Space) || Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) && isGrounded && Time.timeScale == 1) {
+                Touch touch = Input.GetTouch(0);
+                if (touch.position.x > Screen.width * 0.1f || touch.position.y < Screen.height * 0.9f) {
+                    contador++;
+                    if (GetComponent<Rigidbody2D>().gravityScale == 2) {
 
-                    GetComponent<Rigidbody2D>().gravityScale = -2;
-                    transform.eulerAngles = new Vector3(180, 0, 0);
+                        GetComponent<Rigidbody2D>().gravityScale = -2;
+                        transform.eulerAngles = new Vector3(180, 0, 0);
 
-                }
-                else {
+                    }
+                    else {
 
-                    GetComponent<Rigidbody2D>().gravityScale = 2;
-                    transform.eulerAngles = new Vector3(0, 0, 0);
+                        GetComponent<Rigidbody2D>().gravityScale = 2;
+                        transform.eulerAngles = new Vector3(0, 0, 0);
 
+                    }
                 }
             }
         }

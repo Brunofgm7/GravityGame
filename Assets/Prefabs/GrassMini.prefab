@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7165072835082689773}
   - component: {fileID: 7165072835082689763}
-  - component: {fileID: 7165072835082689772}
+  - component: {fileID: 1212197539711256933}
   m_Layer: 0
-  m_Name: GrassMid 1
+  m_Name: GrassMini
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &7165072835082689772
+--- !u!61 &1212197539711256933
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
